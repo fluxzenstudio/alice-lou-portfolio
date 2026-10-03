@@ -2,6 +2,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata: Metadata = {
   title: "Alice Lou — Portfolio 2026",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body className="antialiased">
         <Navbar />
         {children}
+        <SpeedInsights />
       </body>
     </html>
   );
