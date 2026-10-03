@@ -1,0 +1,167 @@
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+
+/* ---------- Global Text Color ---------- */
+body {
+  color: #57534e !important; /* A sophisticated, readable medium-dark grey */
+}
+
+/* ---------- Navigation Bar Links ---------- */
+.nav-link {
+  color: #C5A059; /* Elegant muted gold */
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #9E7C36; /* Deeper gold on hover */
+}
+
+.nav-link-active {
+  color: #9E7C36; /* Deeper gold for the active page */
+}
+
+/* The animated underline */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0%;
+  height: 2px; /* Slightly thicker underline */
+  background-color: #C5A059; /* Gold underline */
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+/* ---------- Testimonial Grid ---------- */
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+@media (min-width: 900px) {
+  .testimonial-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* ---------- Certificate Links ---------- */
+.cert-link {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 14px 18px;
+  background-color: #fafaf9;
+  border: 1px solid #e7e5e4;
+  border-radius: 8px;
+  color: #C5A059;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: left;
+  cursor: pointer;
+  transition: background-color 0.25s ease, border-color 0.25s ease, color 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease;
+}
+
+.cert-link:hover {
+  background-color: #ffffff;
+  border-color: #C5A059;
+  color: #9E7C36;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  transform: translateX(4px);
+}
+
+.cert-arrow {
+  color: #C5A059;
+  flex-shrink: 0;
+  transition: transform 0.25s ease;
+}
+
+.cert-link:hover .cert-arrow {
+  transform: translateX(4px);
+}
+
+/* ---------- Lightbox Close Button ---------- */
+.lightbox-close {
+  transition: background-color 0.25s ease;
+}
+
+.lightbox-close:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+/* ---------- Award Date Links ---------- */
+.award-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1917;
+  cursor: pointer;
+  transition: color 0.25s ease;
+}
+
+.award-link:hover {
+  color: #C5A059;
+}
+
+.award-link:hover .cert-arrow {
+  transform: translateX(3px);
+}
+
+/* ===== Responsive Navbar ===== */
+.desktop-nav {
+  display: none;
+  align-items: center;
+  gap: 36px;
+}
+
+.mobile-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.mobile-dropdown {
+  display: block;
+}
+
+@media (min-width: 1024px) {
+  .desktop-nav {
+    display: flex;
+  }
+
+  .mobile-toggle {
+    display: none;
+  }
+
+  .mobile-dropdown {
+    display: none;
+  }
+}
