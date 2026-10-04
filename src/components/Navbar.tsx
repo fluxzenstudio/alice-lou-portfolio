@@ -91,7 +91,7 @@ export default function Navbar() {
             }}
           >
             <Image 
-                src="/alice-logo.png" 
+                src="/alice-logo.webp" 
                 alt="Alice Lou logo" 
                 width={60} 
                 height={60} 

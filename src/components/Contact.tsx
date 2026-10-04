@@ -137,7 +137,7 @@ export default function Contact() {
             <motion.div variants={itemVariants} style={{ width: '36%', maxWidth: '440px', position: 'sticky', top: '96px' }}>
               <div style={{ width: '100%', marginBottom: '14px' }}>
                 <Image
-                  src="/alice-communicator.png"
+                  src="/alice-communicator.jpg"
                   alt="Alice Lou — a communicator at heart"
                   width={400}
                   height={500}
@@ -151,7 +151,7 @@ export default function Contact() {
                 />
               </div>
               <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', textTransform: 'none', fontStyle: 'italic' }}>
-                Always happy to meet new friends
+                Always happy to make new friends
               </p>
             </motion.div>
 

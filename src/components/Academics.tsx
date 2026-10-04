@@ -34,7 +34,7 @@ export default function Academics() {
       teacher: "Mr Patrick Wells",
       role: "Grade 5 Homeroom Teacher",
       year: "2023/24",
-      photo: "/patrick-wells.png",
+      photo: "/patrick-wells.jpg",
       initials: "PW",
     },
     {
@@ -43,7 +43,7 @@ export default function Academics() {
       teacher: "Mr Richard Hobson",
       role: "Grade 6 English Teacher",
       year: "2024/25",
-      photo: "/richard-hobson.png",
+      photo: "/richard-hobson.jpg",
       initials: "RH",
     },
     {
@@ -79,7 +79,7 @@ export default function Academics() {
       teacher: "Mr Gregory Venter",
       role: "Grade 7 Math Teacher",
       year: "2025/26",
-      photo: "/gregory-venter.png",
+      photo: "/gregory-venter.jpg",
       initials: "GV",
     },
   ];
@@ -163,7 +163,7 @@ export default function Academics() {
             <motion.div variants={itemVariants} style={{ width: '20%', position: 'sticky', top: '96px' }}>
               <div style={{ width: '100%', marginBottom: '14px' }}>
                 <Image
-                  src="/alice-book.png"
+                  src="/alice-book.jpg"
                   alt="Alice reading a book"
                   width={300}
                   height={400}

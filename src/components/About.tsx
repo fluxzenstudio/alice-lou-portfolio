@@ -382,7 +382,7 @@ export default function About() {
             <motion.div variants={itemVariants} style={{ width: '16%', position: 'sticky', top: '96px' }}>
               <div style={{ position: 'relative', width: '100%', height: 'auto', borderRadius: '8px', overflow: 'hidden' }}>
                 <Image
-                  src="/alice-looking-future.png"
+                  src="/alice-looking-future.jpg"
                   alt="Alice looking toward the future"
                   width={200}
                   height={300}
