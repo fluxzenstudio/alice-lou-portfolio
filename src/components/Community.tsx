@@ -100,7 +100,7 @@ export default function Community() {
               {/* Photo 1 */}
               <div style={{ flex: 1, position: 'relative', aspectRatio: '4 / 3', borderRadius: '8px', overflow: 'hidden' }}>
                 <Image
-                  src="/dog-shelter1.png"
+                  src="/dog-shelter1.webp"
                   alt="Alice volunteering at the dog shelter"
                   fill
                   sizes="(max-width: 768px) 90vw, 25vw"
@@ -111,7 +111,7 @@ export default function Community() {
               {/* Photo 2 */}
               <div style={{ flex: 1, position: 'relative', aspectRatio: '4 / 3', borderRadius: '8px', overflow: 'hidden' }}>
                 <Image
-                  src="/dog-shelter2.png"
+                  src="/dog-shelter2.webp"
                   alt="Alice interacting with shelter dogs"
                   fill
                   sizes="(max-width: 768px) 90vw, 25vw"
@@ -122,7 +122,7 @@ export default function Community() {
               {/* Photo 3 */}
               <div style={{ flex: 1, position: 'relative', aspectRatio: '4 / 3', borderRadius: '8px', overflow: 'hidden' }}>
                 <Image
-                  src="/dog-shelter3.png"
+                  src="/dog-shelter3.webp"
                   alt="Alice feeding dogs at the shelter"
                   fill
                   sizes="(max-width: 768px) 90vw, 25vw"

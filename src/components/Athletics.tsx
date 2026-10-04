@@ -29,27 +29,27 @@ export default function Athletics() {
 
   const championships = {
     hisac: [
-      { label: "HISAC 2021/22 U14 Girls' 1st Place", image: "/hisac-2021-table-tennis-tournament-u14-1st-place.png" },
-      { label: "HISAC 2022/23 U14 Girls' 2nd Place", image: "/hisac-2023-table-tennis-tournament-u14-2nd-place.png" },
-      { label: "HISAC 2023/24 U14 Girls' Doubles Champion", image: "/hisac-table-tennis-u14-girls-doubles-champion.png" },
-      { label: "HISAC 2024/25 U19 Girls' Champion", image: "/hisac-2024-table-tennis-tournament-u19-champion.png" },
-      { label: "HISAC 2025/26 Girls' Singles Champion", image: "/hisac-table-tennis-girls-singles-2026-champion.png" },
-      { label: "HISAC 2025/26 Girls' Doubles Champion", image: "/hisac-table-tennis-girls-doubles-champion-2026.png" },
+      { label: "HISAC 2021/22 U14 Girls' 1st Place", image: "/hisac-2021-table-tennis-tournament-u14-1st-place.jpg" },
+      { label: "HISAC 2022/23 U14 Girls' 2nd Place", image: "/hisac-2023-table-tennis-tournament-u14-2nd-place.jpg" },
+      { label: "HISAC 2023/24 U14 Girls' Doubles Champion", image: "/hisac-table-tennis-u14-girls-doubles-champion.jpg" },
+      { label: "HISAC 2024/25 U19 Girls' Champion", image: "/hisac-2024-table-tennis-tournament-u19-champion.jpg" },
+      { label: "HISAC 2025/26 Girls' Singles Champion", image: "/hisac-table-tennis-girls-singles-2026-champion.jpg" },
+      { label: "HISAC 2025/26 Girls' Doubles Champion", image: "/hisac-table-tennis-girls-doubles-champion-2026.jpg" },
     ],
     sisac: [
-      { label: "SISAC 2024/25 Division 2 Girls' Singles Champion", image: "/sisac-champion-table-tennis-division2-girls-singles-2025.png" },
-      { label: "SISAC 2025/26 Girls' Singles Champion", image: "/sisac-champion-table-tennis-girls-singles-2026.png" },
+      { label: "SISAC 2024/25 Division 2 Girls' Singles Champion", image: "/sisac-champion-table-tennis-division2-girls-singles-2025.jpg" },
+      { label: "SISAC 2025/26 Girls' Singles Champion", image: "/sisac-champion-table-tennis-girls-singles-2026.jpg" },
     ],
     acamis: [
-      { label: "ACAMIS 2022/23 Girls' Team 3rd Place", image: "/acamis-table-tennis-girls-team-3rd-place-2023.png" },
-      { label: "ACAMIS 2022/23 Girls' Singles 2nd Place", image: "/acamis-table-tennis-girls-singles-2023-2nd-place.png" },
+      { label: "ACAMIS 2022/23 Girls' Team 3rd Place", image: "/acamis-table-tennis-girls-team-3rd-place-2023.webp" },
+      { label: "ACAMIS 2022/23 Girls' Singles 2nd Place", image: "/acamis-table-tennis-girls-singles-2023-2nd-place.webp" },
     ],
   };
 
   const mvpAwards = [
-    { label: "Varsity Table Tennis MVP 2023/24", image: "/varsity-table-tennis-mvp-2024.png" },
-    { label: "Varsity Table Tennis MVP 2024/25", image: "/varsity-table-tennis-mvp-2025.png" },
-    { label: "Varsity Table Tennis MVP 2025/26", image: "/varsity-table-tennis-mvp-2026.png" },
+    { label: "Varsity Table Tennis MVP 2023/24", image: "/varsity-table-tennis-mvp-2024.jpg" },
+    { label: "Varsity Table Tennis MVP 2024/25", image: "/varsity-table-tennis-mvp-2025.jpg" },
+    { label: "Varsity Table Tennis MVP 2025/26", image: "/varsity-table-tennis-mvp-2026.jpg" },
   ];
 
   return (
