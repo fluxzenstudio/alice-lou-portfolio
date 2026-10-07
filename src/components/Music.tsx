@@ -94,7 +94,7 @@ export default function Music() {
                     }}
                   />
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>
-                    Keeping the beat with the school band
+                    Finding bliss in the beat
                   </p>
                 </div>
 

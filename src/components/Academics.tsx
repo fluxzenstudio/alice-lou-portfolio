@@ -95,7 +95,7 @@ export default function Academics() {
           <motion.h1 variants={itemVariants} className="font-serif text-5xl md:text-6xl font-normal tracking-tight text-stone-900 mb-6">
             Academics
           </motion.h1>
-          <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-2xl leading-relaxed">
+          <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-2xl leading-relaxed" style={{ lineHeight: '1.8' }}>
             A curious mind, a disciplined work ethic, and a genuine love of learning
             shaped by more than a decade in an International Baccalaureate school.
           </motion.p>
