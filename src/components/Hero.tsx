@@ -17,13 +17,21 @@ export default function Hero() {
     return () => mq.removeEventListener("change", handler);
   }, []);
 
+  // Shared text constants to guarantee 100% match between mobile and desktop
+  const greeting = "Hello, I am";
+  const name = "Alice Lou";
+  
+  const introParagraph = "I am an eighth grader who loves figuring things out. I was born in Los Angeles but grew up in Hangzhou, China, where I attend an international school. When I am not in class, you can usually find me practicing my table tennis serves, working on a tricky math problem, or playing the piano. I try my best to be kind, work hard, and ask a lot of questions. Next year, I will be starting at a U.S. boarding school for ninth grade, and I am so excited to join a new community where I can keep learning and growing.";
+  
+  const transitionParagraph = "There is a lot more to me than just this quick intro! Click on any of the links below to explore the different parts of my life and see who I really am.";
+
   const exploreLinks = [
-    { href: "/about", label: "Global Citizen" },
-    { href: "/academics", label: "Scholar" },
-    { href: "/athletics", label: "Athlete" },
-    { href: "/music", label: "Musician" },
-    { href: "/community", label: "Member of the Community" },
-    { href: "/contact", label: "Communicator" },
+    { href: "/about", label: "About" },
+    { href: "/academics", label: "Academics" },
+    { href: "/athletics", label: "Athletics" },
+    { href: "/music", label: "Music" },
+    { href: "/community", label: "Community" },
+    { href: "/contact", label: "Contact" },
   ];
 
   /* DESKTOP & TABLET LANDSCAPE */
@@ -54,30 +62,22 @@ export default function Hero() {
               className="font-serif italic text-2xl text-stone-500 mb-2"
               style={{ lineHeight: "1.2", marginTop: "0px" }}
             >
-              Hello, I am
+              {greeting}
             </p>
 
             <h1
               className="font-serif text-6xl md:text-7xl font-normal tracking-tight text-stone-900 mb-8"
               style={{ lineHeight: "1", marginTop: "0px" }}
             >
-              Alice Lou
+              {name}
             </h1>
 
             <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-6">
-              I'm a curious and driven eighth grader who loves learning in all
-              its forms. Whether that means diving deep into a challenging
-              problem, competing at the table tennis table, or losing myself in
-              a piece of music. I believe in community, kindness, and staying
-              endlessly curious about the world around me. As I get ready for
-              the next chapter of my journey at a U.S. boarding school, I can't
-              wait to bring my energy, my questions, and my love of learning to
-              a brand-new community.
+              {introParagraph}
             </p>
 
             <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-8">
-              There's so much more to discover about who I am. I invite you to
-              explore the different sides of my journey below as:
+              {transitionParagraph}
             </p>
 
             <div
@@ -110,7 +110,7 @@ export default function Hero() {
     );
   }
 
-    /* MOBILE & TABLET PORTRAIT */
+  /* MOBILE & TABLET PORTRAIT */
   return (
     <section className="min-h-screen flex items-center justify-start px-6 pt-10 bg-stone-50">
       <div className="max-w-2xl w-full mx-auto flex flex-col">
@@ -121,14 +121,14 @@ export default function Hero() {
             className="font-serif italic text-2xl text-stone-500 mb-2"
             style={{ lineHeight: "1.2", marginTop: "20px" }}
           >
-            Hello, I am
+            {greeting}
           </p>
 
           <h1
             className="font-serif text-5xl font-normal tracking-tight text-stone-900 mb-6"
             style={{ lineHeight: "1", marginTop: "0px" }}
           >
-            Alice Lou
+            {name}
           </h1>
 
           <div className="mb-8">
@@ -148,19 +148,11 @@ export default function Hero() {
         {/* Bottom section: left-aligned */}
         <div className="text-left">
           <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-6">
-            I'm a curious and driven eighth grader who loves learning in all
-            its forms. Whether that means diving deep into a challenging
-            problem, competing at the table tennis table, or losing myself in a
-            piece of music. I believe in community, kindness, and staying
-            endlessly curious about the world around me. As I get ready for the
-            next chapter of my journey at a U.S. boarding school, I can't wait
-            to bring my energy, my questions, and my love of learning to a
-            brand-new community.
+            {introParagraph}
           </p>
 
           <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-8">
-            There's so much more to discover about who I am. I invite you to
-            explore the different sides of my journey below as:
+            {transitionParagraph}
           </p>
 
           {/* Links */}

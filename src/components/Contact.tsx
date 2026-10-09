@@ -33,26 +33,33 @@ export default function Contact() {
   const safeEmail = `${emailUser}@${emailDomain}`;
   // ------------------------------------
 
+  // Shared text constants to guarantee 100% match between mobile and desktop
+  const headerText = "I love meeting new people, and a good conversation is always the best place to start. I would love to connect with you!";
+
+  const paragraph1 = "I have always believed that good communication is the foundation of any real friendship. Whether I am catching up with a friend I have known since kindergarten, talking with a teammate after a tough match, or just saying hello to someone new, I try to listen more than I speak. I love asking questions to show I care, and I always want the people around me to feel seen and heard.";
+
+  const paragraph2 = "Starting new friendships is something I genuinely enjoy. There is something really exciting about meeting someone with totally different experiences and perspectives. It always teaches me something new about the world and about myself. I also believe that the best relationships are the ones you actually put effort into, like showing up for each other, staying in touch, and being honest even when it is not the easiest thing to do.";
+
+  const paragraph3 = "As I get ready for my next chapter at a U.S. boarding school, I am really looking forward to finding a community of curious, kind, and driven students who share these same values. I also warmly welcome admissions teams, counselors, and educators who would like to learn more about me. If any of that sounds like you, please reach out. I read every single message and I always reply.";
+
   return (
     <main className="bg-white">
 
-      {/* PAGE HEADER — shared */}
+      {/* PAGE HEADER - shared */}
       <section className="pt-24 pb-14 px-6 md:px-12 lg:px-20 bg-white">
         <motion.div className="max-w-7xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1 variants={itemVariants} className="font-serif text-5xl md:text-6xl font-normal tracking-tight text-stone-900 mb-6">
             Let's Connect
           </motion.h1>
           <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-2xl" style={{ lineHeight: '1.8' }}>
-            A conversation is where every good relationship begins and I'd love to start one with you.
+            {headerText}
           </motion.p>
         </motion.div>
       </section>
 
       {isDesktop ? (
         <>
-          {/* ============================================ */}
-          {/* DESKTOP LAYOUT — EXACT ORIGINAL CODE         */}
-          {/* ============================================ */}
+          {/* DESKTOP LAYOUT */}
 
           <section className="pb-24 px-6 md:px-12 lg:px-20 bg-white">
             <motion.div className="max-w-7xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
@@ -63,31 +70,19 @@ export default function Contact() {
                     A Communicator at Heart
                   </h2>
 
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                    I have always believed that good communication is the foundation of every meaningful
-                    relationship. Whether it's a friendship that has lasted since kindergarten, a
-                    conversation with a teammate after a tough match, or the very first hello to someone
-                    I have just met. I try to listen more than I speak, to ask questions that show genuine
-                    curiosity, and to make the people around me feel seen and heard.
-                  </p>
+                  <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                    {paragraph1}
+                  </motion.p>
 
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                    Starting new relationships is something I genuinely enjoy. There is something exciting
-                    about meeting someone with different experiences and perspectives. It always teaches me
-                    something new about the world and about myself. And I believe that the relationships worth
-                    having are the ones you invest in: showing up, staying in touch, and being honest even
-                    when it's easier not to be.
-                  </p>
+                  <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                    {paragraph2}
+                  </motion.p>
 
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>
-                    As I prepare for the next chapter at a U.S. boarding school, I am looking for a
-                    community of curious, kind, and driven students who share these values. I also welcome
-                    admissions teams, counselors, and educators who would like to learn more about me. If
-                    any of that sounds like you, please do reach out. I read every message and reply to
-                    them all.
-                  </p>
+                  <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>
+                    {paragraph3}
+                  </motion.p>
 
-                  <div>
+                  <motion.div variants={itemVariants}>
                     <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#a8a29e', margin: '0px 0px 12px 0px' }}>
                       Get in touch directly
                     </p>
@@ -112,12 +107,12 @@ export default function Contact() {
                     <p style={{ fontSize: '13px', color: '#78716c', marginTop: '8px', fontStyle: 'italic' }}>
                       I personally read and reply to every message. Please allow 2-3 business days for a response.
                     </p>
-                  </div>
+                  </motion.div>
                 </motion.div>
 
                 <motion.div variants={itemVariants} style={{ width: '36%', maxWidth: '440px', position: 'sticky', top: '96px' }}>
                   <div style={{ width: '100%', marginBottom: '14px' }}>
-                    <Image src="/alice-communicator.jpg" alt="Alice Lou — a communicator at heart" width={400} height={500} style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} priority />
+                    <Image src="/alice-communicator.jpg" alt="Alice Lou, a communicator at heart" width={400} height={500} style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} priority />
                   </div>
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>
                     Always happy to make new friends
@@ -130,9 +125,7 @@ export default function Contact() {
         </>
       ) : (
         <>
-          {/* ============================================ */}
-          {/* MOBILE LAYOUT — image right of para 1        */}
-          {/* ============================================ */}
+          {/* MOBILE LAYOUT */}
 
           <section className="pb-16 px-6 bg-white">
             <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
@@ -144,39 +137,27 @@ export default function Contact() {
               {/* Paragraph 1 + Image in 2 columns */}
               <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start', marginBottom: '28px' }}>
                 <p className="text-lg text-stone-600" style={{ lineHeight: '1.8', margin: 0, flex: 1 }}>
-                  I have always believed that good communication is the foundation of every meaningful
-                  relationship. Whether it's a friendship that has lasted since kindergarten, a
-                  conversation with a teammate after a tough match, or the very first hello to someone
-                  I have just met. I try to listen more than I speak, to ask questions that show genuine
-                  curiosity, and to make the people around me feel seen and heard.
+                  {paragraph1}
                 </p>
                 <div style={{ width: '38%', flexShrink: 0 }}>
-                  <Image src="/alice-communicator.jpg" alt="Alice Lou — a communicator at heart" width={400} height={500} style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} priority />
+                  <Image src="/alice-communicator.jpg" alt="Alice Lou, a communicator at heart" width={400} height={500} style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} priority />
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>
                     Always happy to make new friends
                   </p>
                 </div>
               </motion.div>
 
-              {/* Paragraph 2 — full width */}
+              {/* Paragraph 2 - full width */}
               <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                Starting new relationships is something I genuinely enjoy. There is something exciting
-                about meeting someone with different experiences and perspectives. It always teaches me
-                something new about the world and about myself. And I believe that the relationships worth
-                having are the ones you invest in: showing up, staying in touch, and being honest even
-                when it's easier not to be.
+                {paragraph2}
               </motion.p>
 
-              {/* Paragraph 3 — full width */}
+              {/* Paragraph 3 - full width */}
               <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>
-                As I prepare for the next chapter at a U.S. boarding school, I am looking for a
-                community of curious, kind, and driven students who share these values. I also welcome
-                admissions teams, counselors, and educators who would like to learn more about me. If
-                any of that sounds like you, please do reach out. I read every message and reply to
-                them all.
+                {paragraph3}
               </motion.p>
 
-              {/* Email link — full width */}
+              {/* Email link - full width */}
               <motion.div variants={itemVariants}>
                 <p style={{ fontSize: '12px', fontWeight: 600, letterSpacing: '0.15em', textTransform: 'uppercase', color: '#a8a29e', margin: '0px 0px 12px 0px' }}>
                   Get in touch directly
@@ -209,10 +190,10 @@ export default function Contact() {
         </>
       )}
 
-      {/* CLOSING QUOTE — shared */}
+      {/* CLOSING QUOTE - shared */}
       <section className="px-6 bg-white" style={{ textAlign: 'center', paddingTop: '50px', paddingBottom: '96px' }}>
         <p className="font-serif italic text-2xl md:text-3xl text-stone-700">
-          "I'm fluent in English, Mandarin, and emoji ;P"
+          "I am fluent in English, Mandarin, and emoji ;P"
         </p>
       </section>
 

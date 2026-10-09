@@ -36,6 +36,43 @@ export default function About() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
+  // Shared text constants to guarantee 100% match between mobile and desktop
+  const rootsParagraphs = [
+    "I was born in Los Angeles in 2013, but I have lived in Hangzhou, China, for basically my whole life. This is my home.",
+    "My family is kind of like a mini United Nations. My dad Werner is from South Africa, my mom Rania is Chinese, my older sister Lisa was born in Hong Kong, and my little brother Mike is American. With all those different backgrounds mixed together, we needed a place where everyone felt like they belonged, and Hangzhou became exactly that place.",
+    "I love this city because it is never boring. One weekend, my family and I can be walking around West Lake, watching the willow trees dip into the water and spotting old pagodas in the distance. The next weekend, we might be hiking the green hills behind Longjing village where they grow tea, and I can smell the leaves drying in the sun. But then you turn a corner and suddenly you are in the middle of all these glass skyscrapers and buzzing e-bikes. Old and new, quiet and loud, it is all mixed together, and I think that is really cool.",
+    "Hangzhou is where my parents built their life, where my siblings and I grew up, and where I have made my best friends. It is the place that made our wonderfully mixed-up family feel totally normal."
+  ];
+
+  const friendsParagraphs = [
+    "I have been at Hangzhou International School since PreK. That means some of my closest friends are the exact same kids I shared crayons with when I was four. We have basically grown up together.",
+    "My friends are from everywhere, like Korea, Germany, Brazil, and Japan. We swap snacks, teach each other words in different languages, and celebrate each other's holidays. Last week we might be studying for a math test, and this week we could be hiking around West Lake or sharing bubble tea after school.",
+    "I think the thing I love most about my friend group is that we do not pretend to be the same. We are different, and that makes everything more interesting. But underneath it all, we worry about the same stuff, laugh at the same silly jokes, and just want to feel like we belong. I have learned that friendship is not about being identical. It is about showing up for each other, again and again."
+  ];
+
+  const travelParagraphs = [
+    "My family loves to travel, and because Hangzhou has great high-speed trains and a big airport, we take off whenever we get the chance.",
+    "So far, I have been lucky enough to visit Australia, Switzerland, Italy, Malaysia, Hawaii, California, and the Philippines. Every trip teaches me something a textbook never could. I learn how to figure out a subway map in a city where I cannot read the signs, how to order food when I do not speak the language, and how to dance to music even when I do not know the words.",
+    "But honestly, the best part of traveling is not the places, it is the people. I have made friends in so many different countries, and the thing that always surprises me is how similar we all are. We all want friends. We all get nervous about fitting in. We all think silly jokes are funny. Our differences are small, but our similarities are huge."
+  ];
+
+  const motionParagraphs = [
+    "When I am not studying or practicing table tennis, I am usually outside doing something active. One of my favorite things is riding my bike along the Qiantang River with my little brother Mike. When the wind hits our faces and the city skyline sparkles in the background, it is the best feeling.",
+    "Some of my happiest moments are not the big ones, they are the simple ones. A family walk around West Lake after dinner. A pickup game with friends at the park. The sound of my paddle hitting the ball just right during practice. I like staying busy because it keeps my head clear and makes me happy."
+  ];
+
+  const switzerlandParagraphs = [
+    "Last December, I did something totally crazy. I got on a plane all by myself and flew all the way to Switzerland for two weeks at a place called Les Elfes Ski Camp. My parents did not come with me, I did not know a single adult there, and I had literally never been on skis before. I am actually really scared of heights, so the idea of strapping long boards to my feet and sliding down a huge mountain was completely terrifying. But I really wanted to prove to myself that I could face hard things and get past them.",
+    "The first few days were pretty rough. I fell so many times I lost count. My legs hurt in places I did not even know I had muscles, and every time I looked down the hill my stomach did this weird flip. But I kept going back out there. I listened to my coach, watched the kids who were already really good, and just kept practicing. Eventually, it stopped feeling like I was just trying not to crash and started feeling like I was actually flying. By the end of the first week, I somehow went from a total beginner to a Level 2.5 skier, which was pretty awesome. The biggest thing I learned is that being scared does not just magically go away. You just get better at handling it.",
+    "Besides the skiing, the camp gave me a lot of confidence. It showed me that I can go to a totally new country where people speak a different language and still figure things out. I met kids from all over the world. We ate meals together and tried to talk even when we did not speak the same language perfectly. I also learned that asking for help is just as brave as trying to do everything yourself. Oh, and as a bonus, skiing is actually super fun! I really cannot wait to go back to a snowy mountain again."
+  ];
+
+  const lookingAheadParagraphs = [
+    "Even though I was born in Los Angeles and hold American citizenship, I have spent almost my entire life growing up outside the United States. Living in China, traveling the world, and attending an international school have given me a global perspective that I am deeply grateful for. But as I look toward the future, I feel a strong pull to return to my American roots. I want to live, study, and eventually contribute to the country that is, on paper and in my heart, my home.",
+    "I want to study law or work in public service because I have seen how messy things get when people do not understand each other. Living in different countries taught me that most arguments start just because of bad communication. I hope to become a lawyer or mediator one day to help people actually listen to each other. Whether it is settling a family argument or helping neighbors get along, I believe real change happens when we create spaces where different viewpoints can exist peacefully, rather than forcing everyone to agree.",
+    "Attending a U.S. boarding school for ninth grade is the first step on this journey. I am looking for a school that will challenge me academically, push me to grow as a person, and surround me with curious, kind, and driven peers. From there, I hope to attend a top university in the United States where I can study law, political science, or public policy and build the foundation I need to make a real difference. I know the road is long, but I also know that every big journey starts with one brave step. This is mine."
+  ];
+
   const topicHeading = (isFirst: boolean) => ({
     marginTop: isFirst ? "0px" : "56px",
     marginBottom: "24px",
@@ -92,23 +129,32 @@ export default function About() {
 
                 <motion.div variants={itemVariants} style={{ width: '46%' }}>
                   <h3 className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(true)}>Roots in Hangzhou</h3>
-                  <p className="text-lg text-stone-600" style={bodyText}>While my story began in Los Angeles, California, in 2013, my heart and my home have long been rooted in Hangzhou, China. I grew up in a wonderfully diverse household: my father Werner is South African, my mother Rania is Chinese, my older sister Lisa was born in Hong Kong, and my younger brother Mike is American. With so many different cultural backgrounds under one roof, we needed a place that could embrace all of us and Hangzhou became exactly that.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>Hangzhou is a city of striking contrasts that deeply influences how I see the world. It is famous for the serene, poetic beauty of West Lake, where weeping willows dip into the lake and ancient pagodas rise in the distance. Yet, just minutes away from the tranquil tea plantations of Longjing, Hangzhou is also a bustling hub of modern technology and innovation. Growing up here has taught me to appreciate the delicate balance between preserving history and embracing the future. I love spending weekends hiking the lush green hills surrounding the city or walking along the tree-lined streets that make this city feel like a giant garden.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>For my family, Hangzhou is the unifier. It is where my parents built a life together, where my siblings and I have formed our closest friendships, and where our diverse heritage blends into the local culture. The warmth of the local community and the deep-rooted traditions of the region have given me a strong sense of identity and belonging.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>Beyond its natural beauty, Hangzhou is an incredible gateway to the wider world. Thanks to its world-class high-speed rail network and international airport, it serves as the perfect base for exploration. From here, my family and I have traveled across China, ventured through the rest of Asia, and journeyed even further beyond. These travels have instilled in me a deep curiosity about different cultures and a profound appreciation for the vastness of the world I am just beginning to explore.</p>
+                  {rootsParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
 
                   <h3 className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>Friends Who Feel Like Family</h3>
-                  <p className="text-lg text-stone-600" style={bodyText}>Some of my closest friends are the same children I shared crayons with in kindergarten. Because I have attended Hangzhou International School since PreK, my friendships have had years to grow, from classroom peers to lifelong friends.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>My friends come from all over the world, and our differences are what make our time together so rich: we share food, languages, festivals, and perspectives. Whether we are studying for a test, hiking the hills around West Lake, or laughing over snacks after school, I have learned that true friendship is built on showing up for each other, again and again.</p>
+                  {friendsParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
 
                   <h3 className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>The World Is My Classroom</h3>
-                  <p className="text-lg text-stone-600" style={bodyText}>Travel is how my family learns about the world together. From our home base in Hangzhou, with its high-speed trains and international airport, we have journeyed across China, through Asia, and to far beyond.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>I've been fortunate enough to travel widely. From Australia and Switzerland to Italy, Malaysia, Hawaii, California, and the Philippines. Each place has taught me something no classroom could: how to navigate unfamiliar streets, taste foods I'd never heard of, dance to music in languages I don't speak, and find my way through conversations in broken phrases and hand gestures.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>But the biggest lesson came not from the places themselves, but from the people I met along the way. Spending time with friends from Korea, Germany, Brazil, Japan, and everywhere in between, I discovered something that surprised me: even though we look different on the outside and grow up in different cultures, we're often the same on the inside. We all care about love and friendship, we all worry about fitting in, we all laugh at the same silly jokes. Our differences are small but our similarities are huge. That realization has shaped how I see the world and how I want to contribute to it.</p>
-
+                  {travelParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
+                  
                   <h3 className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>Always in Motion</h3>
-                  <p className="text-lg text-stone-600" style={bodyText}>When I am not studying, I am usually outside and moving. One of my favorite rituals is cycling along the Qiantang River with my younger brother Mike, wind in our faces and the city skyline glinting in the distance.</p>
-                  <p className="text-lg text-stone-600" style={bodyText}>Table tennis training and music practice fill my weeks with rhythm and discipline, but some of my happiest moments are the simple ones: a bike ride by the river, a family walk around West Lake, or a pickup game with friends. Staying active keeps my mind clear and my spirit light.</p>
+                  {motionParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
                 </motion.div>
 
                 <motion.div variants={itemVariants} style={{ width: '24%', position: 'sticky', top: '96px' }}>
@@ -133,9 +179,11 @@ export default function About() {
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>December 2025 · Les Elfes Ski Camp, Switzerland</p>
                 </motion.div>
                 <motion.div variants={itemVariants} style={{ width: '68%' }}>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8', marginTop: '0px' }}>In December 2025, I did something I had never done before. I boarded a plane all by myself, flew over 9,000 kilometers to Switzerland, and spent two weeks at Les Elfes Ski Camp. All of this without my parents, without any adult I already knew, and without ever having stood on a pair of skis. I have always had a fear of heights, and the idea of strapping long boards to my feet and sliding down a mountain felt completely terrifying. But I wanted to prove to myself that I could face challenges and overcome it.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>The first few days were humbling. I fell more times than I can count, my legs ached in places I didn't know existed, and every time I looked down the slope my stomach took a turn. But I kept showing up. I listened carefully to my coach, watched the more advanced skiers, and practiced until the movements started to feel less like survival and more like flying. Amazingly, the end of the week, I had progressed from a total beginner to a Level 2.5 skier. More importantly, I had learned that fear doesn't disappear; you just get better at managing it.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>Beyond the skiing, the camp gave me something I'll carry for the rest of my life: the confidence that I can drop myself into a completely unfamiliar place, a different country, a different language, a different group of people and still find my way. I met students from all over the world, shared meals in a language that wasn't always my own, and learned that asking for help is just as important as being brave. As a bonus I learnt that skiing is actually a whole lot of fun and I can't wait to get back on a snowy mountain again.</p>
+                  {switzerlandParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: index === switzerlandParagraphs.length - 1 ? '32px' : '28px', lineHeight: '1.8', marginTop: index === 0 ? '0px' : '0px' }}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
                   <button className="cert-link" onClick={() => setLightboxImage('/alice-ski-certificate.jpg')}><ArrowRight className="cert-arrow" size={18} strokeWidth={2} />View my Les Elfes ski certificate</button>
                 </motion.div>
               </div>
@@ -148,9 +196,11 @@ export default function About() {
               <motion.h2 variants={itemVariants} className="font-serif text-4xl font-normal tracking-tight text-stone-900 mb-8" style={{ marginTop: '30px' }}>Looking Ahead</motion.h2>
               <div style={{ display: 'flex', flexDirection: 'row', gap: '48px', alignItems: 'flex-start' }}>
                 <motion.div variants={itemVariants} style={{ flex: 1 }}>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8', marginTop: '0px' }}>Though I was born in Los Angeles, California, and hold American citizenship, I spent almost my entire life growing up outside the United States. Living in China, traveling the world, and attending an international school have given me a global perspective that I am deeply grateful for. But as I look toward the future, I feel a strong pull to return to my American roots, to live, study, and eventually contribute to the country that is, on paper and in my heart, my home.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>I want to study law or work in public service because I’ve seen how messy things get when people don’t understand each other. Living in different countries taught me that most fights start just because of bad communication. I hope to become a lawyer or mediator one day to help people actually listen to each other, whether it’s settling a family argument or helping neighbors get along. I believe real change happens when we create spaces where different viewpoints can coexist peacefully, rather than forcing everyone to agree.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '0px', lineHeight: '1.8' }}>Attending a U.S. boarding school for Grade 9 is the first step on this journey. I am looking for a school that will challenge me academically, push me to grow as a person, and surround me with curious, kind, and driven peers. From there, I hope to attend a top university in the United States where I can study law, political science, or public policy and build the foundation I need to make a real difference. I know the road is long, but I also know that every big journey starts with one brave step. This is mine.</p>
+                  {lookingAheadParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: index === lookingAheadParagraphs.length - 1 ? '0px' : '28px', lineHeight: '1.8', marginTop: index === 0 ? '0px' : '0px' }}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
                 </motion.div>
                 <motion.div variants={itemVariants} style={{ width: '16%', position: 'sticky', top: '96px' }}>
                   <div style={{ position: 'relative', width: '100%', borderRadius: '8px', overflow: 'hidden' }}>
@@ -179,9 +229,11 @@ export default function About() {
                 </div>
               </motion.div>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>While my story began in Los Angeles, California, in 2013, my heart and my home have long been rooted in Hangzhou, China. I grew up in a wonderfully diverse household: my father Werner is South African, my mother Rania is Chinese, my older sister Lisa was born in Hong Kong, and my younger brother Mike is American. With so many different cultural backgrounds under one roof, we needed a place that could embrace all of us and Hangzhou became exactly that.</motion.p>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>Hangzhou is a city of striking contrasts that deeply influences how I see the world. It is famous for the serene, poetic beauty of West Lake, where weeping willows dip into the lake and ancient pagodas rise in the distance. Yet, just minutes away from the tranquil tea plantations of Longjing, Hangzhou is also a bustling hub of modern technology and innovation. Growing up here has taught me to appreciate the delicate balance between preserving history and embracing the future. I love spending weekends hiking the lush green hills surrounding the city or walking along the tree-lined streets that make this city feel like a giant garden.</motion.p>
+              {rootsParagraphs.map((paragraph, index) => (
+                <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                  {paragraph}
+                </motion.p>
+              ))}
 
               <motion.div variants={itemVariants} style={centeredMedia}>
                 <div style={{ maxWidth: '400px', width: '100%' }}>
@@ -189,10 +241,6 @@ export default function About() {
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>My hometown: Hangzhou, China</p>
                 </div>
               </motion.div>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>For my family, Hangzhou is the unifier. It is where my parents built a life together, where my siblings and I have formed our closest friendships, and where our diverse heritage blends into the local culture. The warmth of the local community and the deep-rooted traditions of the region have given me a strong sense of identity and belonging.</motion.p>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>Beyond its natural beauty, Hangzhou is an incredible gateway to the wider world. Thanks to its world-class high-speed rail network and international airport, it serves as the perfect base for exploration. From here, my family and I have traveled across China, ventured through the rest of Asia, and journeyed even further beyond. These travels have instilled in me a deep curiosity about different cultures and a profound appreciation for the vastness of the world I am just beginning to explore.</motion.p>
 
               <motion.h3 variants={itemVariants} className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>Friends Who Feel Like Family</motion.h3>
 
@@ -203,9 +251,11 @@ export default function About() {
                 </div>
               </motion.div>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>Some of my closest friends are the same children I shared crayons with in kindergarten. Because I have attended Hangzhou International School since PreK, my friendships have had years to grow, from classroom peers to lifelong friends.</motion.p>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>My friends come from all over the world, and our differences are what make our time together so rich: we share food, languages, festivals, and perspectives. Whether we are studying for a test, hiking the hills around West Lake, or laughing over snacks after school, I have learned that true friendship is built on showing up for each other, again and again.</motion.p>
+              {friendsParagraphs.map((paragraph, index) => (
+                <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                  {paragraph}
+                </motion.p>
+              ))}
 
               <motion.h3 variants={itemVariants} className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>The World Is My Classroom</motion.h3>
 
@@ -216,18 +266,18 @@ export default function About() {
                 </div>
               </motion.div>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>Travel is how my family learns about the world together. From our home base in Hangzhou, with its high-speed trains and international airport, we have journeyed across China, through Asia, and to far beyond.</motion.p>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>I've been fortunate enough to travel widely. From Australia and Switzerland to Italy, Malaysia, Hawaii, California, and the Philippines. Each place has taught me something no classroom could: how to navigate unfamiliar streets, taste foods I'd never heard of, dance to music in languages I don't speak, and find my way through conversations in broken phrases and hand gestures.</motion.p>
-
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>But the biggest lesson came not from the places themselves, but from the people I met along the way. Spending time with friends from Korea, Germany, Brazil, Japan, and everywhere in between, I discovered something that surprised me: even though we look different on the outside and grow up in different cultures, we're often the same on the inside. We all care about love and friendship, we all worry about fitting in, we all laugh at the same silly jokes. Our differences are small but our similarities are huge. That realization has shaped how I see the world and how I want to contribute to it.</motion.p>
+              {travelParagraphs.map((paragraph, index) => (
+                <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={bodyText}>
+                  {paragraph}
+                </motion.p>
+              ))}
 
               <motion.h3 variants={itemVariants} className="font-serif text-2xl tracking-tight text-stone-900" style={topicHeading(false)}>Always in Motion</motion.h3>
 
               <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start' }}>
                 <div style={{ flex: 1 }}>
-                  <p className="text-lg text-stone-600" style={bodyText}>When I am not studying, I am usually outside and moving. One of my favorite rituals is cycling along the Qiantang River with my younger brother Mike — wind in our faces and the city skyline glinting in the distance.</p>
-                  <p className="text-lg text-stone-600" style={{ ...bodyText, marginBottom: 0 }}>Table tennis training and music practice fill my weeks with rhythm and discipline, but some of my happiest moments are the simple ones: a bike ride by the river, a family walk around West Lake, or a pickup game with friends. Staying active keeps my mind clear and my spirit light.</p>
+                  <p className="text-lg text-stone-600" style={bodyText}>{motionParagraphs[0]}</p>
+                  <p className="text-lg text-stone-600" style={{ ...bodyText, marginBottom: 0 }}>{motionParagraphs[1]}</p>
                 </div>
                 <div style={{ width: '42%', flexShrink: 0 }}>
                   <video src="/alice-bicycle.mp4" autoPlay muted loop playsInline style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block' }} />
@@ -247,12 +297,12 @@ export default function About() {
                   <Image src="/alice-switzerland-les-elfes-skiing.jpg" alt="Alice skiing at Les Elfes Ski Camp in Switzerland" width={320} height={400} style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block', objectFit: 'cover' }} />
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>December 2025 · Les Elfes Ski Camp, Switzerland</p>
                 </div>
-                <p className="text-lg text-stone-600" style={{ lineHeight: '1.8', margin: 0, flex: 1 }}>In December 2025, I did something I had never done before. I boarded a plane all by myself, flew over 9,000 kilometers to Switzerland, and spent two weeks at Les Elfes Ski Camp. All of this without my parents, without any adult I already knew, and without ever having stood on a pair of skis. I have always had a fear of heights, and the idea of strapping long boards to my feet and sliding down a mountain felt completely terrifying. But I wanted to prove to myself that I could face challenges and overcome it.</p>
+                <p className="text-lg text-stone-600" style={{ lineHeight: '1.8', margin: 0, flex: 1 }}>{switzerlandParagraphs[0]}</p>
               </motion.div>
 
               <motion.div variants={itemVariants}>
-                <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>The first few days were humbling. I fell more times than I can count, my legs ached in places I didn't know existed, and every time I looked down the slope my stomach took a turn. But I kept showing up. I listened carefully to my coach, watched the more advanced skiers, and practiced until the movements started to feel less like survival and more like flying. Amazingly, the end of the week, I had progressed from a total beginner to a Level 2.5 skier. More importantly, I had learned that fear doesn't disappear; you just get better at managing it.</p>
-                <p className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>Beyond the skiing, the camp gave me something I'll carry for the rest of my life: the confidence that I can drop myself into a completely unfamiliar place, a different country, a different language, a different group of people and still find my way. I met students from all over the world, shared meals in a language that wasn't always my own, and learned that asking for help is just as important as being brave. As a bonus I learnt that skiing is actually a whole lot of fun and I can't wait to get back on a snowy mountain again.</p>
+                <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>{switzerlandParagraphs[1]}</p>
+                <p className="text-lg text-stone-600" style={{ marginBottom: '32px', lineHeight: '1.8' }}>{switzerlandParagraphs[2]}</p>
                 <button className="cert-link" onClick={() => setLightboxImage('/alice-ski-certificate.jpg')}><ArrowRight className="cert-arrow" size={18} strokeWidth={2} />View my Les Elfes ski certificate</button>
               </motion.div>
             </motion.div>
@@ -263,7 +313,7 @@ export default function About() {
             <motion.div className="max-w-3xl mx-auto text-left" variants={containerVariants} initial="hidden" animate="visible">
               <motion.h2 variants={itemVariants} className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-10">Looking Ahead</motion.h2>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>Though I was born in Los Angeles, California, and hold American citizenship, I spent almost my entire life growing up outside the United States. Living in China, traveling the world, and attending an international school have given me a global perspective that I am deeply grateful for. But as I look toward the future, I feel a strong pull to return to my American roots, to live, study, and eventually contribute to the country that is, on paper and in my heart, my home.</motion.p>
+              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>{lookingAheadParagraphs[0]}</motion.p>
 
               <motion.div variants={itemVariants} style={{ display: 'flex', justifyContent: 'center', marginBottom: '28px' }}>
                 <div style={{ maxWidth: '320px', width: '100%' }}>
@@ -272,9 +322,9 @@ export default function About() {
                 </div>
               </motion.div>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>My dream is to become a lawyer or work in public service. Growing up between cultures has shown me how much the world needs people who can bridge divides and who understand different perspectives, speak more than one language, and care deeply about justice and fairness. I want to use my voice and my education to advocate for people who don't always have someone in their corner, whether that means working in civil rights, immigration law, or community advocacy.</motion.p>
+              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>{lookingAheadParagraphs[1]}</motion.p>
 
-              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '0px', lineHeight: '1.8' }}>Attending a U.S. boarding school for Grade 9 is the first step on this journey. I am looking for a school that will challenge me academically, push me to grow as a person, and surround me with curious, kind, and driven peers. From there, I hope to attend a top university in the United States where I can study law, political science, or public policy and build the foundation I need to make a real difference. I know the road is long, but I also know that every big journey starts with one brave step. This is mine.</motion.p>
+              <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '0px', lineHeight: '1.8' }}>{lookingAheadParagraphs[2]}</motion.p>
             </motion.div>
           </section>
         </>
@@ -291,10 +341,9 @@ export default function About() {
           <div style={{ position: 'relative', maxWidth: '90%', maxHeight: '85vh', width: '100%', height: '100%', cursor: 'default' }} onClick={(e) => e.stopPropagation()}>
             <Image src={lightboxImage} alt="Certificate" fill sizes="(max-width: 768px) 90vw, 80vw" style={{ objectFit: 'contain', borderRadius: '8px', boxShadow: '0 24px 80px rgba(0,0,0,0.5)' }} />
           </div>
-          <button className="lightbox-close" onClick={() => setLightboxImage(null)} aria-label="Close preview" style={{ position: 'absolute', top: '24px', right: '32px', background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '50%', width: '44px', height: '44px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#ffffff', cursor: 'pointer', zIndex: 101 }}>
-            <X size={20} strokeWidth={2} />
+          <button className="lightbox-close" onClick={() => setLightboxImage(null)} aria-label="Close preview" style={{ position: 'absolute', top: '24px', right: '32px' }}>
+             <X size={24} color="white" />
           </button>
-          <p style={{ position: 'absolute', bottom: '20px', left: 0, right: 0, textAlign: 'center', color: 'rgba(255,255,255,0.6)', fontSize: '13px', letterSpacing: '0.08em', margin: 0 }}>Click anywhere or press Esc to close</p>
         </motion.div>
       )}
     </div>

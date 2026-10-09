@@ -36,6 +36,23 @@ export default function Athletics() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
+  // Shared text constants to guarantee 100% match between mobile and desktop
+  const headerText = "Table tennis is basically a way of life in China. It is known as the national sport, and you see people playing it everywhere from schoolyards to community centers. Growing up in this environment, especially with a grandpa who was a champion player in China, meant that picking up a paddle was just something I was always going to do. For me, the table became my first real classroom for discipline and focus. It taught me early on that success does not come from just hitting the ball hard, but from strategy, resilience, and staying calm when every single point matters.";
+
+  const whereItBeganParagraphs = [
+    "I first picked up a paddle at the age of five, following in the footsteps of my grandfather. What started as a fun family tradition quickly became my own huge passion. Even when I was really young, my coaches noticed I had a quick eye for the ball, fast reflexes, and a competitive spirit that made me actually look forward to every single practice.",
+    "That early spark has carried me through years of serious training and into tournaments across the region, where I have been lucky enough to win several championships and medals. Every match teaches me something new. I learn how to stay calm under pressure, how to read my opponent's strategy, and how to bounce back stronger after losing a tough set.",
+    "But table tennis has given me way more than just trophies. It has taught me discipline, like showing up to practice even when I am exhausted, and a level of focus that follows me straight into my schoolwork. The resilience and mental toughness I built at the table are the exact same tools I use to succeed in everything else in my life. On and off the court, I have learned that champions are built one game at a time."
+  ];
+
+  const hisacText = "The Hangzhou International Schools Athletic Conference brings together top student athletes from international schools across Hangzhou. Competing locally has been the foundation of my development. It tests my skills against familiar rivals and pushes me to elevate my game year after year.";
+
+  const sisacText = "The South China International Schools Athletic Conference expands the competition to a regional level. Traveling to compete against schools across southern China has been an incredible opportunity to experience different playing styles and prove my consistency on a bigger stage.";
+
+  const acamisText = "The Association of Chinese and Mongolian International Schools tournament is the highest level of international school sports in the region. Competing at ACAMIS means facing the best table tennis players from across China and Mongolia, making every point earned here a testament to hard work and preparation. Unfortunately, ACAMIS management decided after 2023 that students under 15 can no longer participate, so I have not had the opportunity to compete there since then.";
+
+  const mvpText = "Being selected as Most Valuable Player for the HIS Varsity Table Tennis Team is one of my proudest achievements. This honor recognizes not just individual performance, but leadership, consistency, and the ability to lift up the entire team. Earning MVP for three consecutive years (2024, 2025, and 2026) reflects my commitment to doing my best and the trust my coaches and teammates have placed in me as a leader on and off the court.";
+
   const championships = {
     hisac: [
       { label: "HISAC 2021/22 U14 Girls' 1st Place", image: "/hisac-2021-table-tennis-tournament-u14-1st-place.jpg" },
@@ -71,28 +88,21 @@ export default function Athletics() {
   return (
     <main className="bg-white">
 
-      {/* PAGE HEADER — shared */}
+      {/* PAGE HEADER - shared */}
       <section className="pt-24 pb-14 px-6 md:px-12 lg:px-20 bg-white">
         <motion.div className="max-w-7xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
           <motion.h1 variants={itemVariants} className="font-serif text-5xl md:text-6xl font-normal tracking-tight text-stone-900 mb-6">
             Table Tennis
           </motion.h1>
-          <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-            Table tennis is not just a sport in China, it is a cultural heartbeat. Known as the "national ball game,"
-            it permeates daily life from schoolyards to community centers demanding precision, speed, and mental agility.
-            Growing up immersed in this environment (with a grandpa who is a veteran Chinese champion player) meant
-            that picking up a paddle was less of a choice and more of a rite of passage. For me, the table became my first
-            classroom for discipline and focus, teaching me early on that success comes not from brute strength,
-            but from strategy, resilience, and the courage to stay calm when every point matters.
-          </p>
+          <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+            {headerText}
+          </motion.p>
         </motion.div>
       </section>
 
       {isDesktop ? (
         <>
-          {/* ============================================ */}
-          {/* DESKTOP LAYOUT — EXACT ORIGINAL CODE         */}
-          {/* ============================================ */}
+          {/* DESKTOP LAYOUT */}
 
           {/* THREE-COLUMN STORY */}
           <section className="pb-24 px-6 md:px-12 lg:px-20 bg-white">
@@ -108,9 +118,11 @@ export default function Athletics() {
 
                 <motion.div variants={itemVariants} style={{ width: '50%' }}>
                   <h2 className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-8" style={{ marginTop: '0px' }}>Where It All Began</h2>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>I first picked up a paddle at the age of five, following in the footsteps of my grandfather, a table tennis champion in China. What started as a family tradition quickly became my own passion. Even as a young child, my coaches noticed a natural talent: a quick eye for the ball, fast reflexes, and a competitive spirit that made every practice something to look forward to.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>That early spark has carried me through years of dedicated training and into tournaments across the region, where I have won several championships and medals. Every match has taught me something new, how to stay calm under pressure, how to read an opponent's strategy, and how to come back stronger after losing a difficult set.</p>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '0px', lineHeight: '1.8' }}>But table tennis has given me far more than trophies. It has taught me discipline, showing up to practice even when I am tired, and a focus that follows me straight into my schoolwork. The resilience, strategy, and mental toughness I built at the table have become the tools I use to succeed in everything else in my life. On and off the court, I have learned that champions are not born, they are built one game at a time.</p>
+                  {whereItBeganParagraphs.map((paragraph, index) => (
+                    <motion.p key={index} variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                      {paragraph}
+                    </motion.p>
+                  ))}
                 </motion.div>
 
                 <motion.div variants={itemVariants} style={{ width: '30%', position: 'sticky', top: '96px' }}>
@@ -129,7 +141,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants} className="mb-16">
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">HISAC</h3>
-                <p className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>The Hangzhou International Schools Athletic Conference brings together top student-athletes from international schools across Hangzhou. Competing locally has been the foundation of my development, testing my skills against familiar rivals and pushing me to elevate my game year after year.</p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {hisacText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '500px' }}>
                   {championships.hisac.map((item, index) => (
                     <button key={index} className="cert-link" onClick={() => setLightboxImage(item.image)}>
@@ -141,7 +155,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants} className="mb-16">
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">SISAC</h3>
-                <p className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>The South China International Schools Athletic Conference expands the competition to a regional level. Traveling to compete against schools across southern China has been an incredible opportunity to experience different playing styles and prove my consistency on a broader stage.</p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {sisacText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '500px' }}>
                   {championships.sisac.map((item, index) => (
                     <button key={index} className="cert-link" onClick={() => setLightboxImage(item.image)}>
@@ -153,7 +169,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants}>
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">ACAMIS</h3>
-                <p className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>The Association of Chinese and Mongolian International Schools tournament is the pinnacle of international school sports in the region. Competing at ACAMIS means facing the best table tennis players from across China and Mongolia, making every point earned here a testament to resilience and high-level preparation. Unfortunately ACAMIS management decided after 2023 that under 15 years old will no longer be able to participate in the ACAMIS, thus I didn't have the opportunity to compete again after 2023 for this reason.</p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600 max-w-3xl" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {acamisText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '500px' }}>
                   {championships.acamis.map((item, index) => (
                     <button key={index} className="cert-link" onClick={() => setLightboxImage(item.image)}>
@@ -171,7 +189,9 @@ export default function Athletics() {
               <motion.h2 variants={itemVariants} className="font-serif text-4xl font-normal tracking-tight text-stone-900 mb-12">Most Valuable Player</motion.h2>
               <div style={{ display: 'flex', flexDirection: 'row', gap: '48px', alignItems: 'flex-start' }}>
                 <motion.div variants={itemVariants} style={{ width: '58%' }}>
-                  <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8', marginTop: '0px' }}>Being selected as Most Valuable Player for the HIS Varsity Table Tennis Team is one of my proudest achievements. This honor recognizes not just individual performance, but leadership, consistency, and the ability to elevate the entire team. Earning MVP for three consecutive years (2024, 2025, and 2026) reflects my commitment to excellence and the trust my coaches and teammates have placed in me as a leader on and off the court.</p>
+                  <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8', marginTop: '0px' }}>
+                    {mvpText}
+                  </motion.p>
                   <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', maxWidth: '500px' }}>
                     {mvpAwards.map((item, index) => (
                       <button key={index} className="cert-link" onClick={() => setLightboxImage(item.image)}>
@@ -192,25 +212,18 @@ export default function Athletics() {
         </>
       ) : (
         <>
-          {/* ============================================ */}
-          {/* MOBILE LAYOUT — per your 3 requirements      */}
-          {/* ============================================ */}
+          {/* MOBILE LAYOUT */}
 
-          {/* WHERE IT ALL BEGAN — restructured */}
+          {/* WHERE IT ALL BEGAN */}
           <section className="pb-16 px-6 bg-white">
             <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
               <motion.h2 variants={itemVariants} className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-8" style={{ marginTop: '0px' }}>
                 Where It All Began
               </motion.h2>
 
-              {/* Req #1: First para in 2 columns — text left, young photo right */}
               <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'row', gap: '20px', alignItems: 'flex-start', marginBottom: '28px' }}>
                 <p className="text-lg text-stone-600" style={{ lineHeight: '1.8', margin: 0, flex: 1 }}>
-                  I first picked up a paddle at the age of five, following in the footsteps of my
-                  grandfather, a table tennis champion in China. What started as a family tradition
-                  quickly became my own passion. Even as a young child, my coaches noticed a natural
-                  talent: a quick eye for the ball, fast reflexes, and a competitive spirit that made
-                  every practice something to look forward to.
+                  {whereItBeganParagraphs[0]}
                 </p>
                 <div style={{ width: '38%', flexShrink: 0 }}>
                   <Image
@@ -226,15 +239,10 @@ export default function Athletics() {
                 </div>
               </motion.div>
 
-              {/* Paragraph 2 — full width */}
               <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                That early spark has carried me through years of dedicated training and into tournaments
-                across the region, where I have won several championships and medals. Every match has
-                taught me something new, how to stay calm under pressure, how to read an opponent's
-                strategy, and how to come back stronger after losing a difficult set.
+                {whereItBeganParagraphs[1]}
               </motion.p>
 
-              {/* Req #2: Video centered below paragraph 2 */}
               <motion.div variants={itemVariants} style={centeredMedia}>
                 <div style={{ maxWidth: '400px', width: '100%' }}>
                   <video
@@ -249,18 +257,13 @@ export default function Athletics() {
                 </div>
               </motion.div>
 
-              {/* Paragraph 3 — full width */}
               <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '0px', lineHeight: '1.8' }}>
-                But table tennis has given me far more than trophies. It has taught me discipline,
-                showing up to practice even when I am tired, and a focus that follows me straight into
-                my schoolwork. The resilience, strategy, and mental toughness I built at the table have
-                become the tools I use to succeed in everything else in my life. On and off the court,
-                I have learned that champions are not born, they are built one game at a time.
+                {whereItBeganParagraphs[2]}
               </motion.p>
             </motion.div>
           </section>
 
-          {/* CHAMPIONSHIPS — single column, full-width links */}
+          {/* CHAMPIONSHIPS */}
           <section className="py-16 px-6 bg-stone-50">
             <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
               <motion.h2 variants={itemVariants} className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-10">
@@ -269,11 +272,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants} className="mb-12">
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">HISAC</h3>
-                <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                  The Hangzhou International Schools Athletic Conference brings together top student-athletes
-                  from international schools across Hangzhou. Competing locally has been the foundation of my
-                  development, testing my skills against familiar rivals and pushing me to elevate my game year after year.
-                </p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {hisacText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                   {championships.hisac.map((item, index) => (
                     <button key={index} className="cert-link" style={{ width: '100%' }} onClick={() => setLightboxImage(item.image)}>
@@ -285,11 +286,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants} className="mb-12">
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">SISAC</h3>
-                <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                  The South China International Schools Athletic Conference expands the competition to a
-                  regional level. Traveling to compete against schools across southern China has been an
-                  incredible opportunity to experience different playing styles and prove my consistency on a broader stage.
-                </p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {sisacText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                   {championships.sisac.map((item, index) => (
                     <button key={index} className="cert-link" style={{ width: '100%' }} onClick={() => setLightboxImage(item.image)}>
@@ -301,14 +300,9 @@ export default function Athletics() {
 
               <motion.div variants={itemVariants}>
                 <h3 className="font-serif text-2xl font-normal tracking-tight text-stone-900 mb-4">ACAMIS</h3>
-                <p className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                  The Association of Chinese and Mongolian International Schools tournament is the pinnacle
-                  of international school sports in the region. Competing at ACAMIS means facing the best
-                  table tennis players from across China and Mongolia, making every point earned here a
-                  testament to resilience and high-level preparation. Unfortunately ACAMIS management
-                  decided after 2023 that under 15 years old will no longer be able to participate in the
-                  ACAMIS, thus I didn't have the opportunity to compete again after 2023 for this reason.
-                </p>
+                <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
+                  {acamisText}
+                </motion.p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                   {championships.acamis.map((item, index) => (
                     <button key={index} className="cert-link" style={{ width: '100%' }} onClick={() => setLightboxImage(item.image)}>
@@ -320,23 +314,17 @@ export default function Athletics() {
             </motion.div>
           </section>
 
-          {/* MVP — single column, photo below first para, full-width links */}
+          {/* MVP */}
           <section className="py-16 px-6 bg-white pb-16">
             <motion.div className="max-w-3xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
               <motion.h2 variants={itemVariants} className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-8">
                 Most Valuable Player
               </motion.h2>
 
-              {/* Paragraph 1 — full width */}
               <motion.p variants={itemVariants} className="text-lg text-stone-600" style={{ marginBottom: '28px', lineHeight: '1.8' }}>
-                Being selected as Most Valuable Player for the HIS Varsity Table Tennis Team is one of
-                my proudest achievements. This honor recognizes not just individual performance, but
-                leadership, consistency, and the ability to elevate the entire team. Earning MVP for
-                three consecutive years (2024, 2025, and 2026) reflects my commitment to excellence and
-                the trust my coaches and teammates have placed in me as a leader on and off the court.
+                {mvpText}
               </motion.p>
 
-              {/* Req #3a: MVP photo centered below paragraph 1 */}
               <motion.div variants={itemVariants} style={centeredMedia}>
                 <div style={{ maxWidth: '400px', width: '100%' }}>
                   <Image
@@ -352,7 +340,6 @@ export default function Athletics() {
                 </div>
               </motion.div>
 
-              {/* Req #3b: Links full width with same spacing */}
               <motion.div variants={itemVariants} style={{ display: 'flex', flexDirection: 'column', gap: '12px', width: '100%' }}>
                 {mvpAwards.map((item, index) => (
                   <button key={index} className="cert-link" style={{ width: '100%' }} onClick={() => setLightboxImage(item.image)}>
@@ -365,14 +352,14 @@ export default function Athletics() {
         </>
       )}
 
-      {/* CLOSING QUOTE — shared */}
+      {/* CLOSING QUOTE - shared */}
       <section className="px-6 bg-white" style={{ textAlign: 'center', paddingTop: '200px', paddingBottom: '96px' }}>
         <p className="font-serif italic text-2xl md:text-3xl text-stone-700">
           "The more I practice, the luckier I get."
         </p>
       </section>
 
-      {/* LIGHTBOX — shared */}
+      {/* LIGHTBOX - shared */}
       {lightboxImage && (
         <motion.div
           initial={{ opacity: 0 }}
