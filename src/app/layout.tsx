@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Lora, Inter } from "next/font/google"; // Import Google Fonts
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import { Analytics } from "@vercel/analytics/next";
 
 // Configure the serif font for headings/elegant text
 const serif = Lora({ 
@@ -57,6 +58,7 @@ export default function RootLayout({
       <body className={`${serif.variable} ${sans.variable} font-sans antialiased`}>
         <Navbar />
         {children}
+        <Analytics />
       </body>
     </html>
   );
