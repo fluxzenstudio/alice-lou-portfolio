@@ -21,7 +21,7 @@ export default function Hero() {
   const greeting = "Hello, I am";
   const name = "Alice Lou";
   
-  const introParagraph = "I am an eighth grader who loves figuring things out. I was born in Los Angeles but grew up in Hangzhou, China, where I attend an international school. When I am not in class, you can usually find me practicing my table tennis serves, working on a tricky math problem, or playing the piano. I try my best to be kind, work hard, and ask a lot of questions. Next year, I will be starting at a U.S. boarding school for ninth grade, and I am so excited to join a new community where I can keep learning and growing.";
+  const introParagraph = "I am an eighth grader who loves figuring things out. I was born in Los Angeles but grew up in Hangzhou, China, where I attend an international school. When I am not in class, you can usually find me practicing my table tennis serves, working on a tricky math problem, or helping out at a local dog shelter. I try my best to be kind, work hard, and ask a lot of questions. Next year, I will be starting at a U.S. boarding school for ninth grade, and I am so excited to join a new community where I can keep learning and growing.";
   
   const transitionParagraph = "There is a lot more to me than just this quick intro! Click on any of the links below to explore the different parts of my life and see who I really am.";
 
@@ -39,6 +39,8 @@ export default function Hero() {
     return (
       <section className="min-h-screen flex items-center justify-center px-6 pt-10 pb-24 bg-stone-50">
         <div className="max-w-7xl w-full mx-auto flex flex-row gap-16 items-center justify-center">
+          
+          {/* Left Side: Portrait */}
           <div className="flex-shrink-0">
             <div className="relative rounded-sm overflow-hidden shadow-2xl shadow-stone-300/50">
               <Image
@@ -57,7 +59,8 @@ export default function Hero() {
             </div>
           </div>
 
-          <div className="text-left">
+          {/* Right Side: Content */}
+          <div className="text-left flex flex-col">
             <p
               className="font-serif italic text-2xl text-stone-500 mb-2"
               style={{ lineHeight: "1.2", marginTop: "0px" }}
@@ -80,29 +83,53 @@ export default function Hero() {
               {transitionParagraph}
             </p>
 
-            <div
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                gap: "12px",
-                maxWidth: "420px",
-              }}
-            >
-              {exploreLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="cert-link"
+            {/* Links and Video Side-by-Side below paragraphs */}
+            <div className="flex flex-row items-start w-full">
+              
+              {/* Links: Half the previous width */}
+              <div
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "12px",
+                  flex: "1",
+                  marginRight: "40px",
+                }}
+              >
+                {exploreLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    className="cert-link"
+                    style={{
+                      padding: "12px 16px",
+                      fontSize: "15px",
+                      textDecoration: "none",
+                    }}
+                  >
+                    <ArrowRight className="cert-arrow" size={18} strokeWidth={2} />
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+
+              {/* Video: Takes up twice the space of the links */}
+              <div style={{ flex: "2" }}>
+                <video
+                  src="/alice-intro-vid.mp4"
+                  controls
+                  playsInline
+                  preload="metadata"
                   style={{
-                    padding: "12px 16px",
-                    fontSize: "15px",
-                    textDecoration: "none",
+                    width: '100%',
+                    height: 'auto',
+                    borderRadius: '8px',
+                    display: 'block',
+                    boxShadow: '0 8px 24px rgba(0,0,0,0.10)'
                   }}
-                >
-                  <ArrowRight className="cert-arrow" size={18} strokeWidth={2} />
-                  {link.label}
-                </Link>
-              ))}
+                />
+              </div>
+
             </div>
           </div>
         </div>
@@ -151,11 +178,29 @@ export default function Hero() {
             {introParagraph}
           </p>
 
-          <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-8">
+          <p className="text-lg text-stone-600 max-w-lg leading-relaxed mb-6">
             {transitionParagraph}
           </p>
 
-          {/* Links */}
+          {/* Video Block: Styled exactly like Music.tsx */}
+          <div style={{ marginBottom: '32px' }}>
+            <video
+              src="/alice-intro-vid.mp4"
+              controls
+              playsInline
+              preload="metadata"
+              style={{
+                width: '100%',
+                maxWidth: '400px',
+                height: 'auto',
+                borderRadius: '8px',
+                display: 'block',
+                boxShadow: '0 8px 24px rgba(0,0,0,0.10)'
+              }}
+            />
+          </div>
+
+          {/* Links: Single column for mobile */}
           <div
             style={{
               display: "flex",
