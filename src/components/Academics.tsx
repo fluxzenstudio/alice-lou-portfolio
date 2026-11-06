@@ -36,7 +36,6 @@ export default function Academics() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  // Shared text constants to guarantee 100% match between mobile and desktop
   const approachToLearningParagraphs = [
     "For me, learning isn't about memorizing answers. It is about asking better questions. Whether I am analyzing a poem, testing a hypothesis in science, or debating a historical event, I always want to know the why behind everything. My teachers know me as the student who stays after class to dig deeper, not just to chase a good grade, but because I genuinely want to understand.",
     "I have been at Hangzhou International School since PreK, so I have basically grown up in the IB system. Now that I am in Grade 8 (MYP3), I really enjoy how my classes connect to the real world through big projects and research. Over the last ten years, I have learned how to manage my time, work with classmates from all over the world, and take charge of my own learning.",
@@ -155,7 +154,14 @@ export default function Academics() {
                 </motion.div>
 
                 <motion.div variants={itemVariants} style={{ width: '30%', position: 'sticky', top: '96px' }}>
-                  <video src="/his-video.mp4" controls playsInline muted preload="metadata" style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block', boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} />
+                  {/* ✅ FIXED: Removed 'muted' attribute here */}
+                  <video 
+                    src="/his-video.mp4" 
+                    controls 
+                    playsInline 
+                    preload="metadata" 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block', boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} 
+                  />
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>My school: Hangzhou International School</p>
                 </motion.div>
 
@@ -292,7 +298,14 @@ export default function Academics() {
 
               <motion.div variants={itemVariants} style={centeredMedia}>
                 <div style={{ maxWidth: '400px', width: '100%' }}>
-                  <video src="/his-video.mp4" controls playsInline muted preload="metadata" style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block', boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} />
+                  {/* ✅ FIXED: Removed 'muted' attribute here as well */}
+                  <video 
+                    src="/his-video.mp4" 
+                    controls 
+                    playsInline 
+                    preload="metadata" 
+                    style={{ width: '100%', height: 'auto', borderRadius: '8px', display: 'block', boxShadow: '0 8px 24px rgba(0,0,0,0.10)' }} 
+                  />
                   <p style={{ fontSize: '13px', letterSpacing: '0.02em', color: '#57534e', marginTop: '14px', fontStyle: 'italic' }}>My school: Hangzhou International School</p>
                 </div>
               </motion.div>
