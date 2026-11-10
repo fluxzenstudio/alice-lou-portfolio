@@ -25,6 +25,8 @@ export default function Hero() {
   
   const transitionParagraph = "There is a lot more to me than just this quick intro! Click on any of the links below to explore the different parts of my life and see who I really am.";
 
+  const videoCaption = "My two biggest passions: table tennis and caring for rescue dogs.";
+
   const exploreLinks = [
     { href: "/about", label: "About" },
     { href: "/academics", label: "Academics" },
@@ -86,7 +88,7 @@ export default function Hero() {
             {/* Links and Video Side-by-Side below paragraphs */}
             <div className="flex flex-row items-start w-full">
               
-              {/* Links: Half the previous width */}
+              {/* Links */}
               <div
                 style={{
                   display: "flex",
@@ -113,7 +115,7 @@ export default function Hero() {
                 ))}
               </div>
 
-              {/* Video: Takes up twice the space of the links */}
+              {/* Video with Caption */}
               <div style={{ flex: "2" }}>
                 <video
                   src="/alice-intro-vid.mp4"
@@ -128,6 +130,16 @@ export default function Hero() {
                     boxShadow: '0 8px 24px rgba(0,0,0,0.10)'
                   }}
                 />
+                <p style={{ 
+                  fontSize: '13px', 
+                  letterSpacing: '0.02em', 
+                  color: '#57534e', 
+                  marginTop: '14px', 
+                  fontStyle: 'italic',
+                  lineHeight: '1.4'
+                }}>
+                  {videoCaption}
+                </p>
               </div>
 
             </div>
@@ -182,7 +194,7 @@ export default function Hero() {
             {transitionParagraph}
           </p>
 
-          {/* Video Block: Styled exactly like Music.tsx */}
+          {/* Video Block with Caption */}
           <div style={{ marginBottom: '32px' }}>
             <video
               src="/alice-intro-vid.mp4"
@@ -198,6 +210,16 @@ export default function Hero() {
                 boxShadow: '0 8px 24px rgba(0,0,0,0.10)'
               }}
             />
+            <p style={{ 
+              fontSize: '13px', 
+              letterSpacing: '0.02em', 
+              color: '#57534e', 
+              marginTop: '14px', 
+              fontStyle: 'italic',
+              lineHeight: '1.4'
+            }}>
+              {videoCaption}
+            </p>
           </div>
 
           {/* Links: Single column for mobile */}
