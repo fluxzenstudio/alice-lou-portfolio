@@ -1,10 +1,15 @@
-// src/components/Community.tsx
 "use client";
 
 import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, X } from "lucide-react";
 import Image from 'next/image';
+
+type PhotoItem = {
+  src: string;
+  alt: string;
+  caption?: string;
+};
 
 export default function Community() {
   const [lightboxImage, setLightboxImage] = useState<string | null>(null);
@@ -36,7 +41,7 @@ export default function Community() {
     visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
   };
 
-  // Shared text constants to guarantee 100% match between mobile and desktop
+  // Shared text constants
   const headerText = "Helping out is not just something I do, it is how I connect with the world around me. Whether I am supporting a community in need or caring for animals who cannot speak for themselves, I believe that small, consistent actions create the most meaningful change. This page shares my journey of learning that compassion takes real work, patience, and a willingness to get your hands dirty.";
 
   const classmateIntro = "Long before I started volunteering at the animal shelter, I was already learning how to help others right here in my own classroom. I have always believed that a classroom works best when everyone supports each other. Whether it was helping a friend understand a tricky math problem, sharing my notes, or just being someone people could talk to, I tried to be there for my classmates. This commitment to helping others is something I am really proud of, and it is exactly why I was so honored to receive multiple Dragon Awards from my teachers and peers over the years. Those awards reminded me that kindness and teamwork are just as important as getting good grades.";
@@ -52,6 +57,24 @@ export default function Community() {
   const caption1 = "Spreading the word, one conversation at a time.";
   const caption2 = "Heavy lifting, light heart. Delivering donations with Dad.";
   const caption3 = "Sometimes the best gift is just being present.";
+  
+  // New captions matching the style of the first three
+  const caption4 = "Volunteering is about showing up and doing the real work.";
+  const caption5 = "It is not always glamorous, but it is necessary.";
+  const caption6 = "But seeing a happy dog makes every bit of hard work worth it.";
+
+  // Photo data arrays for clean, DRY rendering
+  const originalPhotos: PhotoItem[] = [
+    { src: "/alice-raising-awareness.jpg", alt: "Alice raising awareness about stray dogs in Hangzhou", caption: caption1 },
+    { src: "/alice-shelter-donation.jpg", alt: "Alice delivering donations to the shelter with her dad", caption: caption2 },
+    { src: "/alice-dog-shelter.jpg", alt: "Alice giving attention to shelter dogs", caption: caption3 },
+  ];
+
+  const newPhotos: PhotoItem[] = [
+    { src: "/alice-shelter-cleanup1.webp", alt: "Alice cleaning kennels at the dog shelter", caption: caption4 },
+    { src: "/alice-shelter-cleanup2.webp", alt: "Alice scrubbing floors during shelter cleanup", caption: caption5 },
+    { src: "/alice-shelter-dog.webp", alt: "Alice smiling with a happy shelter dog after cleanup", caption: caption6 },
+  ];
 
   // Dragon Awards data reused from Academics
   const dragonAwards = [
@@ -71,10 +94,14 @@ export default function Community() {
     color: '#57534e'
   };
 
-  const centeredPhoto = {
-    display: 'flex',
-    justifyContent: 'center',
-    margin: '32px 0',
+  // Reusable caption style to guarantee 100% match across all 6 photos
+  const captionStyle = {
+    fontSize: '12px',
+    letterSpacing: '0.02em',
+    color: '#57534e',
+    marginTop: '10px',
+    fontStyle: 'italic',
+    textAlign: 'center' as const
   };
 
   return (
@@ -95,7 +122,6 @@ export default function Community() {
       {isDesktop ? (
         <>
           {/* DESKTOP LAYOUT */}
-
           <section className="pb-24 px-6 md:px-12 lg:px-20 bg-white">
             <motion.div className="max-w-7xl mx-auto" variants={containerVariants} initial="hidden" animate="visible">
               <motion.div variants={itemVariants} style={{ width: '66%', margin: '0 auto' }}>
@@ -133,43 +159,37 @@ export default function Community() {
                   {paragraph1}
                 </motion.p>
 
+                {/* Original 3-column grid (Moved underneath paragraph 1) */}
+                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '16px', margin: '40px 0', flexDirection: 'row', alignItems: 'flex-start' }}>
+                  {originalPhotos.map((photo, i) => (
+                    <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                        <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 90vw, 20vw" style={{ objectFit: 'cover' }} />
+                      </div>
+                      <p style={captionStyle}>
+                        {photo.caption}
+                      </p>
+                    </div>
+                  ))}
+                </motion.div>
+
                 <motion.p variants={itemVariants} style={paraStyle}>
                   {paragraph2}
                 </motion.p>
 
-                {/* 3-column grid */}
-                <div style={{ display: 'flex', gap: '16px', margin: '40px 0', flexDirection: 'row', alignItems: 'flex-start' }}>
-
-                  {/* 1. Raising Awareness */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                      <Image src="/alice-raising-awareness.jpg" alt="Alice raising awareness about stray dogs in Hangzhou" fill sizes="(max-width: 768px) 90vw, 20vw" style={{ objectFit: 'cover' }} />
+                {/* New 3-column grid (Added below paragraph 2) */}
+                <motion.div variants={itemVariants} style={{ display: 'flex', gap: '16px', margin: '40px 0', flexDirection: 'row', alignItems: 'flex-start' }}>
+                  {newPhotos.map((photo, i) => (
+                    <div key={i} style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                      <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                        <Image src={photo.src} alt={photo.alt} fill sizes="(max-width: 768px) 90vw, 20vw" style={{ objectFit: 'cover' }} />
+                      </div>
+                      <p style={captionStyle}>
+                        {photo.caption}
+                      </p>
                     </div>
-                    <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                      {caption1}
-                    </p>
-                  </div>
-
-                  {/* 2. Donation Delivery */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                      <Image src="/alice-shelter-donation.jpg" alt="Alice delivering donations to the shelter with her dad" fill sizes="(max-width: 768px) 90vw, 20vw" style={{ objectFit: 'cover' }} />
-                    </div>
-                    <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                      {caption2}
-                    </p>
-                  </div>
-
-                  {/* 3. Being Present */}
-                  <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
-                    <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                      <Image src="/alice-dog-shelter.jpg" alt="Alice giving attention to shelter dogs" fill sizes="(max-width: 768px) 90vw, 20vw" style={{ objectFit: 'cover' }} />
-                    </div>
-                    <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                      {caption3}
-                    </p>
-                  </div>
-                </div>
+                  ))}
+                </motion.div>
 
                 <motion.p variants={itemVariants} style={paraStyle}>
                   {paragraph3}
@@ -190,7 +210,6 @@ export default function Community() {
       ) : (
         <>
           {/* MOBILE LAYOUT */}
-
           <section className="pb-16 px-6 bg-white">
             <motion.div className="max-w-3xl mx-auto text-left" variants={containerVariants} initial="hidden" animate="visible">
 
@@ -223,14 +242,22 @@ export default function Community() {
                 Volunteering at the Local Dog Shelter
               </motion.h2>
 
-              {/* Position 1: Raising Awareness */}
-              <motion.div variants={itemVariants} style={centeredPhoto}>
-                <div style={{ maxWidth: '400px', width: '100%' }}>
+              {/* Group 1: Two photos above first para */}
+              <motion.div variants={itemVariants} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                    <Image src="/alice-raising-awareness.jpg" alt="Alice raising awareness about stray dogs in Hangzhou" fill sizes="(max-width: 768px) 90vw, 50vw" style={{ objectFit: 'cover' }} />
+                    <Image src="/alice-raising-awareness.jpg" alt="Alice raising awareness about stray dogs in Hangzhou" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
                   </div>
-                  <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
+                  <p style={captionStyle}>
                     {caption1}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                    <Image src="/alice-shelter-donation.jpg" alt="Alice delivering donations to the shelter with her dad" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <p style={captionStyle}>
+                    {caption2}
                   </p>
                 </div>
               </motion.div>
@@ -239,14 +266,22 @@ export default function Community() {
                 {paragraph1}
               </motion.p>
 
-              {/* Position 2: Donation Delivery */}
-              <motion.div variants={itemVariants} style={centeredPhoto}>
-                <div style={{ maxWidth: '400px', width: '100%' }}>
+              {/* Group 2: Two photos underneath first para */}
+              <motion.div variants={itemVariants} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                    <Image src="/alice-shelter-donation.jpg" alt="Alice delivering donations to the shelter with her dad" fill sizes="(max-width: 768px) 90vw, 50vw" style={{ objectFit: 'cover' }} />
+                    <Image src="/alice-dog-shelter.jpg" alt="Alice giving attention to shelter dogs" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
                   </div>
-                  <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                    {caption2}
+                  <p style={captionStyle}>
+                    {caption3}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                    <Image src="/alice-shelter-cleanup1.webp" alt="Alice cleaning kennels at the dog shelter" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <p style={captionStyle}>
+                    {caption4}
                   </p>
                 </div>
               </motion.div>
@@ -255,14 +290,22 @@ export default function Community() {
                 {paragraph2}
               </motion.p>
 
-              {/* Position 3: Being Present */}
-              <motion.div variants={itemVariants} style={centeredPhoto}>
-                <div style={{ maxWidth: '400px', width: '100%' }}>
+              {/* Group 3: Two photos below second para */}
+              <motion.div variants={itemVariants} style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', margin: '24px 0' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
                   <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
-                    <Image src="/alice-dog-shelter.jpg" alt="Alice giving attention to shelter dogs" fill sizes="(max-width: 768px) 90vw, 50vw" style={{ objectFit: 'cover' }} />
+                    <Image src="/alice-shelter-cleanup2.webp" alt="Alice scrubbing floors during shelter cleanup" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
                   </div>
-                  <p style={{ fontSize: '12px', letterSpacing: '0.02em', color: '#57534e', marginTop: '10px', fontStyle: 'italic', textAlign: 'center' }}>
-                    {caption3}
+                  <p style={captionStyle}>
+                    {caption5}
+                  </p>
+                </div>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                    <Image src="/alice-shelter-dog.webp" alt="Alice smiling with a happy shelter dog after cleanup" fill sizes="(max-width: 768px) 40vw, 20vw" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <p style={captionStyle}>
+                    {caption6}
                   </p>
                 </div>
               </motion.div>
