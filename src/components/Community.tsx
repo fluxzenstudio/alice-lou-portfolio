@@ -58,10 +58,10 @@ export default function Community() {
   const caption2 = "Heavy lifting, light heart. Delivering donations with Dad.";
   const caption3 = "Sometimes the best gift is just being present.";
   
-  // New captions matching the style of the first three
   const caption4 = "Volunteering is about showing up and doing the real work.";
   const caption5 = "It is not always glamorous, but it is necessary.";
   const caption6 = "But seeing a happy dog makes every bit of hard work worth it.";
+  const caption7 = "My brother, Mike and I playing with our rescue dog, Sophia";
 
   // Photo data arrays for clean, DRY rendering
   const originalPhotos: PhotoItem[] = [
@@ -94,7 +94,13 @@ export default function Community() {
     color: '#57534e'
   };
 
-  // Reusable caption style to guarantee 100% match across all 6 photos
+  const centeredPhoto = {
+    display: 'flex',
+    justifyContent: 'center',
+    margin: '32px 0',
+  };
+
+  // Reusable caption style to guarantee 100% match across all photos
   const captionStyle = {
     fontSize: '12px',
     letterSpacing: '0.02em',
@@ -194,6 +200,18 @@ export default function Community() {
                 <motion.p variants={itemVariants} style={paraStyle}>
                   {paragraph3}
                 </motion.p>
+
+                {/* NEW: Centered photo of Alice, Mike, and Sophia */}
+                <motion.div variants={itemVariants} style={centeredPhoto}>
+                  <div style={{ maxWidth: '480px', width: '100%' }}>
+                    <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                      <Image src="/alice-mike-sophia.webp" alt="Alice and her brother Mike playing with their rescue dog Sophia" fill sizes="(max-width: 768px) 90vw, 40vw" style={{ objectFit: 'cover' }} />
+                    </div>
+                    <p style={captionStyle}>
+                      {caption7}
+                    </p>
+                  </div>
+                </motion.div>
 
                 <h2 className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-8" style={{ marginTop: '40px', textAlign: 'left' }}>
                   Serving the Community into the Future
@@ -313,6 +331,18 @@ export default function Community() {
               <motion.p variants={itemVariants} style={paraStyle}>
                 {paragraph3}
               </motion.p>
+
+              {/* NEW: Centered photo of Alice, Mike, and Sophia */}
+              <motion.div variants={itemVariants} style={centeredPhoto}>
+                <div style={{ maxWidth: '400px', width: '100%' }}>
+                  <div style={{ position: 'relative', aspectRatio: '4 / 5', borderRadius: '8px', overflow: 'hidden', boxShadow: '0 4px 12px rgba(0,0,0,0.08)', width: '100%' }}>
+                    <Image src="/alice-mike-sophia.webp" alt="Alice and her brother Mike playing with their rescue dog Sophia" fill sizes="(max-width: 768px) 90vw, 50vw" style={{ objectFit: 'cover' }} />
+                  </div>
+                  <p style={captionStyle}>
+                    {caption7}
+                  </p>
+                </div>
+              </motion.div>
 
               <motion.h2 variants={itemVariants} className="font-serif text-3xl font-normal tracking-tight text-stone-900 mb-8" style={{ marginTop: '40px', textAlign: 'left' }}>
                 Serving the Community into the Future
